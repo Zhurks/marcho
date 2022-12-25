@@ -640,7 +640,7 @@
         }
     }
 
-    &__text {}
+    // &__text {}
 
     &__link {
         text-transform: uppercase;
@@ -800,6 +800,9 @@
         margin-top: 12px;
         color: $accent;
         display: inline-block;
+    }
+    &__text{
+        margin-bottom: 25px;
     }
 }
 
