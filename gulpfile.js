@@ -1,6 +1,6 @@
 const { src, dest, watch, parallel, series } = require('gulp');
 
-const scss            = require('gulp-sass')(require('sass'));
+const scss            = require('gulp-sass');
 const concat          = require('gulp-concat');
 const autoprefixer    = require('gulp-autoprefixer');
 const uglify          = require('gulp-uglify');
@@ -28,7 +28,7 @@ function nunjucks() {
 }
 
 function styles() {
-    return src('app/**/*.scss')
+    return src('app/scss/*.scss')
     .pipe(scss({outputStyle: 'compressed'}))
     // .pipe(concat())
     .pipe(rename({
@@ -90,7 +90,7 @@ function cleanDist () {
 
 
 function watching() {
-    watch(['app/scss/**/*.scss'], styles);
+    watch(['app/**/*.scss'], styles);
     watch(['app/*.njk'], nunjucks);
     watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
     watch(['app/**/*.html']).on('change', browserSync.reload)
